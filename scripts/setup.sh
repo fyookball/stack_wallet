@@ -41,6 +41,7 @@ sudo apt-get install -y unzip automake build-essential file pkg-config git pytho
 
 sudo apt install -y libc6-dev-i386
 
+# iunstall Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  -s -- -y
 source "$HOME/.cargo/env"
 cargo install cargo-ndk
