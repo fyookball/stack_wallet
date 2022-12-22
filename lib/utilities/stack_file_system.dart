@@ -15,7 +15,7 @@ abstract class StackFileSystem {
     } else if (Platform.isLinux) {
       appDirectory = Directory("${Platform.environment['HOME']}/.stackwallet");
     } else if (Platform.isWindows) {
-      appDirectory = await getApplicationSupportDirectory();
+      appDirectory =  await getApplicationSupportDirectory();
     } else if (Platform.isMacOS) {
       // currently run in ipad mode??
       throw Exception("Unsupported platform");
@@ -61,18 +61,5 @@ abstract class StackFileSystem {
     } else {
       return root;
     }
-  }
-
-  static Future<Directory> applicationThemesDirectory() async {
-    final root = await applicationRootDirectory();
-    // if (Util.isDesktop) {
-    final dir = Directory("${root.path}/themes");
-    if (!dir.existsSync()) {
-      await dir.create();
-    }
-    return dir;
-    // } else {
-    //   return root;
-    // }
   }
 }
