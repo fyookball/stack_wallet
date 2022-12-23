@@ -237,7 +237,11 @@ class _DesktopMenuState extends ConsumerState<DesktopMenu> {
                         onChanged: (_) {
                           // todo: save stuff/ notify before exit?
                           // exit(0);
-                          SystemNavigator.pop();
+                          if (Platform.isWindows) {
+                            exit(0);
+                          } else {
+                            SystemNavigator.pop();
+                          }
                         },
                         controller: controllers[8],
                       ),
